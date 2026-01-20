@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project X – Guided Workflow</title>
+  <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+  <header>
+    <h1>Project X Guidelines</h1>
+    <nav>
+      <a href="index.html">Welcome</a>
+      <a href="workflow.html">Workflow</a>
+      <a href="examples.html">Examples</a>
+      <a href="checklist.html">Final Checklist</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="workflow">
+      <h2>Guided Workflow</h2>
+      <p>Here is a guided workflow for every prompt you submit. Each step is required for acceptance.</p>
+
+      <ol>
+        <li>
+          Choose a seed fact.
+          <ul>
+            <li>To create challenging prompts or web search questions, it's often easiest to start with a fact or “seed”; such as a fact, figure, person, event, or artifact with broad ties, and work backwards to create a complicated search question, where the answer is hard to find but easy to verify.</li>
+            <li>Examples of seeds: A specific person (e.g., Ada Lovelace, Nelson Mandela), specific event (e.g., the fall of the Berlin Wall, the Apollo 11 landing), or specific artifact (e.g., the Rosetta Stone, the Voyager Golden Record).</li>
+            <li>This “seed” is your anchor; it ensures the final question has an answer that can be verified.</li>
+          </ul>
+        </li>
+
+        <li>
+          Create a prompt with at least 4 layers of complexity or required search steps that has a verifiable answer.
+          <ul>
+            <li>This means your question should require 4 separate steps or constraints that each add a layer of reasoning and lead to increased difficulty.</li>
+            <li>Example: As of 2020, a researcher who completed a PhD in computer science at a university in Switzerland published a widely cited paper on adversarial attacks against image‑classification models trained on a dataset released in 2009. The paper was presented at a top‑tier machine‑learning conference held in North America, and one of the paper’s co‑authors later joined a large U.S. technology company’s AI research lab headquartered in California. What is the title of the 2016 paper by this researcher that analyzes defenses against these adversarial attacks?</li>
+            <li>Layer 1: Identifies a researcher by degree field, degree level, and country of PhD institution (computer‑science PhD at a Swiss university).</li>
+            <li>Layer 2: Narrows to a specific research area and dataset (“adversarial attacks” on an image‑classification dataset released in 2009).</li>
+            <li>Layer 3: Adds venue and region constraints (paper presented at a top‑tier ML conference in North America).</li>
+            <li>Layer 4: Adds a career‑trajectory clue for a co‑author (later joins a large U.S. tech company’s AI research lab in California).</li>
+          </ul>
+        </li>
+
+        <li>
+          Check that the answer has a “Ground Truth” format.
+          <ul>
+            <li>A “Ground Truth” answer is the canonical or reference answer that the model’s output is compared against. The goal is for this ground‑truth string to be simple, consistent, and unambiguous, so automated evaluation (like substring matching) can reliably determine correctness.</li>
+            <li>Shorter is better: Use the core answer rather than full sentences. For example, “Lakers” would be a good “Ground Truth” answer. “The basketball team is the Lakers” would be a poor “Ground Truth” answer.</li>
+            <li>Ignore capitalization: “Lakers” and “lakers” count as the same.</li>
+            <li>Ground truths should not depend on time‑sensitive information (for example, “Who won the World Series this year?”). Choose questions whose answers remain constant instead.</li>
+          </ul>
+        </li>
+
+        <li>
+          Test the prompt on Gemini Pro 2.5.
+          <ul>
+            <li>First, open <a href="https://aistudio.google.com/prompts/new_chat?model=gemini-2.5-pro">https://aistudio.google.com/prompts/new_chat?model=gemini-2.5-pro</a> and make sure “Grounding with Google Search” is on. Begin by pasting your question text. Repeat until you have tested the prompt 3 total times.</li>
+            <li>If the model is able to solve your problem more than 1 of the 3 “on” searches, and answers correctly, increase the difficulty and add more reasoning layers until it cannot.</li>
+            <li>If the question fools the model, take a screenshot of the model break, and test 3 times total in this model. All submissions should fool Gemini 3 out of 3 times.</li>
+          </ul>
+        </li>
+
+        <li>
+          Add a high‑level plan.
+          <ul>
+            <li>For every prompt, you will provide a high‑level plan that clearly outlines optimal trajectory steps that match the provided rubric.</li>
+            <li>To create a high‑level plan, construct a sequence of sub‑goals. Each sub‑goal should begin with one of the following actions: verify (confirm info via an online source), find (identify info generated by a query), or cross‑reference (combine previously found or verified clues).</li>
+            <li>Example prompt and high‑level plan: “An example of this ‘anti‑art’ movement is a work consisting solely of a porcelain fixture, created sometime before the events of The Great Gatsby, but after the events of Red Dead Redemption. The artist’s second wife’s nickname is one of six adjectives in a song that was once #1 on the Billboard Hot 100. The song prominently describes an article of clothing worn by the subject of Japanese sculpture. This Japanese sculpture was completed one year before its companion piece. What is the name of the art movement these Japanese sculptures belong to?”</li>
+            <li>
+              Example high‑level plan:
+              <ol>
+                <li>Verify when the events of The Great Gatsby took place.</li>
+                <li>Verify when the events of Red Dead Redemption 2 took place.</li>
+                <li>Cross‑reference the years before the events of The Great Gatsby, but after the events of Red Dead Redemption 2.</li>
+                <li>Find art movements that took place before the cross‑referenced date range.</li>
+                <li>Find examples of the art movement consisting solely of a porcelain fixture.</li>
+                <li>Verify the artist who created the porcelain fixture art piece.</li>
+                <li>Find the artist’s second wife.</li>
+                <li>Verify the second wife’s nickname.</li>
+                <li>Find the #1 Billboard Hot 100 songs that feature the nickname.</li>
+                <li>Verify the song has six adjectives in the title.</li>
+                <li>Verify the article of clothing prominently described in the song.</li>
+                <li>Find Japanese sculptures that wear articles of clothing.</li>
+                <li>Verify the Japanese sculpture has a companion piece.</li>
+                <li>Verify the Japanese sculpture was completed one year before its companion piece.</li>
+                <li>Find the art movement the sculptures belong to. This is the final answer.</li>
+              </ol>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+  </main>
+</body>
+</html>
