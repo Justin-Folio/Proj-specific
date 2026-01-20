@@ -9,46 +9,51 @@ body {
   margin: 2.5rem auto;
   line-height: 1.7;
   padding: 0 1.5rem;
-  color: #f9fafb;
-  background: #020617; /* deep navy */
+  color: #0f172a;           /* deep slate text */
+  background: #f8fafc;      /* very light background */
 }
 
 /* Headings */
 h1 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
-  color: #fed7aa; /* soft light orange */
+  color: #0f172a;
 }
 
 h2 {
   font-size: 1.5rem;
   margin-top: 2rem;
   margin-bottom: 0.75rem;
-  color: #fed7aa;
+  color: #0f172a;
 }
 
 h3 {
   font-size: 1.15rem;
   margin-top: 1.5rem;
   margin-bottom: 0.4rem;
-  color: #fed7aa;
+  color: #0f172a;
 }
 
-/* Header + nav */
+/* Header + nav with light orange + teal gradient */
 header {
   margin-bottom: 1.5rem;
   border-radius: 20px;
-  padding: 1.5rem 1.7rem;
-  background:
-    radial-gradient(circle at top left, #fb923c 0, #0f172a 55%, #020617 100%);
-  /* orange glow into deep navy */
-  color: #f9fafb;
+  padding: 1.4rem 1.6rem;
+  background: linear-gradient(
+    135deg,
+    #fee2c5 0%,   /* light peach/orange */
+    #fdf4e7 30%,
+    #e0f7f5 65%,  /* light teal */
+    #e0f2ff 100%  /* light blue */
+  );
+  color: #0f172a;
   border: 1px solid rgba(148, 163, 184, 0.4);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.10);
 }
 
 header h1 {
   margin: 0 0 0.75rem 0;
-  color: #fff7ed; /* very light orange/cream */
+  color: #0f172a;
 }
 
 nav {
@@ -59,59 +64,58 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: #ffedd5;                       /* pale orange text */
-  background: rgba(248, 180, 108, 0.18);/* light orange pill */
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 999px;
-  padding: 0.4rem 1rem;
+  padding: 0.35rem 0.95rem;
   font-size: 0.9rem;
-  border: 1px solid rgba(248, 180, 107, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.55);
   transition:
     background 0.15s ease,
     color 0.15s ease,
-    transform 0.1s ease,
-    box-shadow 0.15s ease;
+    box-shadow 0.15s ease,
+    transform 0.1s ease;
 }
 
 nav a:hover {
-  background: #fb923c;                  /* brighter orange */
-  color: #111827;
-  box-shadow: 0 8px 18px rgba(251, 146, 60, 0.5);
+  background: #fed7aa;               /* light orange hover */
+  color: #0f172a;
+  box-shadow: 0 8px 18px rgba(251, 146, 60, 0.35);
   transform: translateY(-1px);
 }
 
-/* Sections & content cards */
+/* Sections & content blocks */
 main {
   margin-top: 1rem;
 }
 
 section {
   margin-top: 1.75rem;
-  padding: 1.4rem 1.4rem 1.5rem;
-  border-radius: 18px;
-  background: #020617;
-  border: 1px solid rgba(51, 65, 85, 0.9);
-  box-shadow: 0 22px 40px rgba(15, 23, 42, 0.65);
+  padding: 1.25rem 1.25rem 1.3rem;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(148, 163, 184, 0.25);
 }
 
-/* nested cards inside main sections */
+/* Nested sections (e.g., workflow steps) */
 section#workflow section,
 section#examples section,
 section#success-criteria section,
 section#topics section,
 section#edgecases section {
   margin-top: 1.25rem;
-  padding: 1rem 1rem 1.1rem;
-  border-radius: 14px;
-  background: #020617;
-  border: 1px solid rgba(75, 85, 99, 0.9);
-  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.7);
+  padding: 1rem 1rem 1.05rem;
+  border-radius: 12px;
+  background: #f9fafb;
+  box-shadow: none;
+  border: 1px solid rgba(203, 213, 225, 0.8);
 }
 
-/* Text */
+/* Text elements */
 p {
-  margin: 0.4rem 0 0.9rem;
+  margin: 0.4rem 0 0.8rem;
   max-width: 70ch;
-  color: #cbd5f5;
 }
 
 ul,
@@ -122,19 +126,9 @@ ol {
 
 li {
   margin: 0.2rem 0;
-  color: #cbd5f5;
 }
 
-/* Links in body text */
-a {
-  color: #fb923c; /* orange accent for inline links */
-}
-
-a:hover {
-  color: #fed7aa;
-}
-
-/* Details / summary */
+/* Details / summary for expandable examples */
 details {
   margin-top: 0.6rem;
 }
@@ -142,11 +136,25 @@ details {
 details summary {
   cursor: pointer;
   font-weight: 600;
-  color: #fb923c;
+  color: #0f766e;          /* teal accent for summaries */
 }
 
 details summary:hover {
-  color: #fed7aa;
+  color: #0d9488;
+}
+
+/* Links in body text */
+a {
+  color: #0f766e;
+}
+
+a:hover {
+  color: #0d9488;
+}
+
+/* Utility emphasis */
+em {
+  font-style: italic;
 }
 
 /* Small screens */
