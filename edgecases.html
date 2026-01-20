@@ -1,0 +1,32 @@
+<section id="break-test-edge-cases" class="section">
+  <div class="container">
+    <h2>Handling Edge Cases in Break Tests</h2>
+    <p>
+      Not every Gemini response is a simple “right” or “wrong.” Use the rules below to decide when a test run counts as a successful break and when you must revise the prompt.
+    </p>
+
+    <h3>What Counts as a Break?</h3>
+    <ul>
+      <li><strong>Clearly incorrect answer:</strong> Gemini returns a specific answer that does not match the ground truth string. This is a valid break.</li>
+      <li><strong>Hallucinations:</strong> Gemini confidently cites incorrect facts or fabricates details. Treat this as an incorrect answer and count it as a break.</li>
+      <li><strong>Refusal / no answer:</strong> Responses like “I’m unable to help with that” or “I can’t find that” are acceptable breaks; they show the model could not solve the task.</li>
+    </ul>
+
+    <h3>When You Must Revise the Prompt</h3>
+    <ul>
+      <li><strong>Knowledge‑cutoff issues:</strong> If Gemini explicitly says it cannot answer due to its knowledge cutoff, rewrite or shift the question until it can answer incorrectly instead of timing out on missing training data.</li>
+      <li><strong>Token‑limit or truncated replies:</strong> If the answer is cut off or the model hits a length limit, rephrase the prompt so Gemini can respond fully, then re‑test until you get a clear incorrect answer.</li>
+      <li><strong>Partially correct answers:</strong> If Gemini gets close (e.g., correct person but wrong detail), increase difficulty or tighten constraints until the model is fully wrong on all three runs.</li>
+    </ul>
+
+    <h3>Split or Multiple Answers</h3>
+    <ul>
+      <li>If Gemini returns two or more candidate answers in one response, you must check <strong>all</strong> of them.</li>
+      <li>If any of the suggested answers contains the correct ground‑truth string, that test run does <em>not</em> count as a break; you must revise and re‑test the prompt.</li>
+    </ul>
+
+    <p class="note">
+      Remember: a prompt is only ready to submit when Gemini Pro 2.5 with Google Search grounding fails in all three tests, and at least one screenshot clearly shows the incorrect or refused answer with grounding turned on.
+    </p>
+  </div>
+</section>

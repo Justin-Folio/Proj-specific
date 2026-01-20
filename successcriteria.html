@@ -1,0 +1,40 @@
+<section id="success-criteria" class="section">
+  <div class="container">
+    <h2>Success Criteria &amp; Quality Bar</h2>
+    <p>
+      Every prompt you submit must meet <strong>all</strong> of these criteria to pass QA and be accepted into the dataset. These rules define what “good enough” looks like for this project.
+    </p>
+
+    <h3>Complexity &amp; Difficulty</h3>
+    <ul>
+      <li>Contains at least four genuine reasoning layers (four distinct clues that are needed to reach the answer, not filler details).</li>
+      <li>Requires at least four separate web sources to fully verify the reasoning path.</li>
+      <li>Would take most experts several minutes to solve and reverse‑engineer, not something trivial or direct.</li>
+      <li>Is not solved by a simple search of the full question text (the answer should not pop out from a single, obvious query).</li>
+    </ul>
+
+    <h3>Answer Properties</h3>
+    <ul>
+      <li>The answer is a single, unambiguous ground‑truth string (no multiple valid answers, no comma‑separated lists).</li>
+      <li>The answer is string‑matchable: the correct model response should contain the exact ground‑truth substring regardless of capitalization.</li>
+      <li>The answer is evergreen: it will remain the same over time and does not depend on current events or changing facts.</li>
+      <li>The answer is not easily guessable from the prompt alone (e.g., not a very common or obvious choice).</li>
+    </ul>
+
+    <h3>Source &amp; Formatting Rules</h3>
+    <ul>
+      <li>Uses multiple independent sources; no more than half of the sources for a prompt may be from Wikipedia.</li>
+      <li>All sources used in the rubric are English‑language web pages that can be accessed without extra clicks (no logins, pagination, or interactive dashboards).</li>
+      <li>All prompts and citations are text‑only; do not rely on images, audio, or video.</li>
+      <li>Numeric answers follow the required format exactly: no commas unless explicitly specified (e.g., <code>491</code> or <code>491k</code> in the pattern “xxxk”).</li>
+    </ul>
+
+    <h3>Style &amp; Professionalism</h3>
+    <ul>
+      <li>Prompt and answer are written in clear, grammatical English, with professional tone and no run‑on sentences.</li>
+      <li>Prompts across your batch are diverse in topic and structure; do not recycle the same pattern repeatedly.</li>
+      <li>No counting‑based tricks (e.g., “third letter of the word,” “fourth letter of the song title,” initials puzzles, etc.).</li>
+      <li>Prompts are non‑instructional: they do not walk the model through a step‑by‑step search plan.</li>
+    </ul>
+  </div>
+</section>
