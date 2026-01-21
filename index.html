@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Project X Guidelines – Welcome</title>
+  <title>Project X Guidelines – Welcome &amp; Project Goal</title>
   <link rel="stylesheet" href="styles3.css">
 </head>
 <body>
@@ -10,22 +10,18 @@
     <h1>Project X Guidelines</h1>
     <nav>
       <a href="index.html">Welcome</a>
-      <a href="workflow.html">Workflow</a>
-      <a href="examples.html">Examples</a>
-      <a href="topics.html">Topics & Sources</a>
-      <a href="edgecases.html">Edge Cases</a>
-      <a href="successcriteria.html">Success Criteria</a>
+      <a href="learning-path.html">Learning Path</a>
     </nav>
   </header>
 
   <main>
     <section id="overview">
-      <h2>Project Overview &amp; Goal</h2>
+      <h2>Welcome &amp; Project Goal</h2>
       <p>Welcome to Project X! Your objective is to create a dataset that tests whether an LLM can solve difficult tasks that are hard to answer but easy to verify.</p>
       <ul>
         <li>Goal: Create prompts that fool Gemini Pro 2.5 three out of three times while still being verifiable by a human.</li>
         <li>Each task should involve a challenging, fact‑seeking question with a single, indisputable answer supported by verifiable evidence.</li>
-        <li>Answers must remain constant over time (for example, avoid time‑sensitive questions such as “Who won the World Series last year?”).</li>
+        <li>Answers must remain constant over time (for example, avoid time‑sensitive questions such as "Who won the World Series last year?").</li>
         <li>All facts should be searchable on the web.</li>
         <li>Answers must be in a single answer, in simple form. For example: Dodgers.</li>
       </ul>
@@ -38,6 +34,30 @@
         <li>No plagiarism or copying. Each prompt must be unique.</li>
         <li>No step‑by‑step instruction prompts: Do not tell the model what to search in which order. The model must figure out the reasoning path on its own.</li>
       </ul>
+    </section>
+
+    <section id="video-intro">
+      <h2>Quick Start Video</h2>
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/dvdWpBqOUQM"
+          title="Project X Overview"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p class="video-caption">Watch this 3-minute overview of Project X</p>
+
+      <div class="video-explanation">
+        <p>This video gives you the big picture of Project X and what you'll be doing.</p>
+        <p>For detailed, step-by-step guidance, explore the detailed modules in the learning path.</p>
+        <p><strong>Ready to dive deeper? Start with Module 1.</strong></p>
+      </div>
+
+      <div class="next-button-container">
+        <a href="module.html?id=1" class="btn-primary">Next: Start with Module 1</a>
+      </div>
     </section>
   </main>
 </body>
