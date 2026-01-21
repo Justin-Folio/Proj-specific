@@ -1,0 +1,13 @@
+{
+  "name": "project-x-guidelines",
+  "version": "1.0.0",
+  "description": "Project X Learning Path",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
