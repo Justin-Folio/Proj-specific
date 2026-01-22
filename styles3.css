@@ -580,6 +580,122 @@ a:hover {
   font-style: italic;
 }
 
+/* Quiz Component */
+.quiz-container {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+.quiz-container h3 {
+  margin-top: 0;
+  color: #0f172a;
+  font-size: 1.3rem;
+}
+
+.quiz-options {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.quiz-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: #f9fafb;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.quiz-option:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.1);
+}
+
+.quiz-option.selected {
+  background: #e0f2fe;
+  border-color: #0ea5e9;
+}
+
+.quiz-option.correct {
+  background: #dcfce7;
+  border-color: #22c55e;
+  border-width: 2px;
+}
+
+.quiz-option.incorrect {
+  background: #fee2e2;
+  border-color: #ef4444;
+  border-width: 2px;
+}
+
+.quiz-option.disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.option-letter {
+  font-weight: 700;
+  color: #0f172a;
+  flex-shrink: 0;
+  min-width: 1.5rem;
+}
+
+.option-text {
+  color: #334155;
+  line-height: 1.6;
+}
+
+.quiz-feedback {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border-radius: 8px;
+  border-left: 4px solid;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.quiz-feedback.success {
+  background: #f0fdf4;
+  border-color: #22c55e;
+  color: #166534;
+}
+
+.quiz-feedback.error {
+  background: #fef2f2;
+  border-color: #ef4444;
+  color: #991b1b;
+}
+
+.quiz-feedback p {
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
 /* Small screens */
 @media (max-width: 640px) {
   body {

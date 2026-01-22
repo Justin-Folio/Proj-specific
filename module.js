@@ -129,6 +129,35 @@ const moduleData = {
             </ol>
           </details>
         </section>
+
+        <section class="quiz-container">
+          <h3>Check Your Understanding</h3>
+          <p>Which of the following best describes a good seed fact for a Project X prompt?</p>
+
+          <div class="quiz-options">
+            <button class="quiz-option" data-answer="A">
+              <span class="option-letter">A)</span>
+              <span class="option-text">"Michael Jordan is the greatest basketball player of all time" because it reflects a widely held view and appears in many articles and debates online.</span>
+            </button>
+
+            <button class="quiz-option" data-answer="B">
+              <span class="option-letter">B)</span>
+              <span class="option-text">"The closing score of last year's NBA Finals Game 7 was 103–91" because it is a precise, numeric fact that can be quickly verified on many reputable sports websites.</span>
+            </button>
+
+            <button class="quiz-option" data-answer="C">
+              <span class="option-letter">C)</span>
+              <span class="option-text">"The Los Angeles Lakers won the 1987 NBA Finals" because it is a specific, time-stable, and web‑verifiable fact.</span>
+            </button>
+
+            <button class="quiz-option" data-answer="D">
+              <span class="option-letter">D)</span>
+              <span class="option-text">"A successful NBA team in the Western Conference won a major title in the late 1900s" because it is flexible enough to cover multiple seasons and teams, giving the model room to interpret the scenario.</span>
+            </button>
+          </div>
+
+          <div id="quiz-feedback" class="quiz-feedback" style="display: none;"></div>
+        </section>
       </section>
     `
   },
@@ -337,4 +366,56 @@ function loadModule() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', loadModule);
+function initializeQuiz() {
+  const quizOptions = document.querySelectorAll('.quiz-option');
+  const feedbackDiv = document.getElementById('quiz-feedback');
+
+  const feedbackMessages = {
+    'A': {
+      correct: false,
+      message: 'Opinion-based, not a single verifiable fact.'
+    },
+    'B': {
+      correct: false,
+      message: 'Too time-sensitive / recent; Project X prefers stable anchors.'
+    },
+    'C': {
+      correct: true,
+      message: 'Correct! This is a concrete, time-stable fact that works well as a seed.'
+    },
+    'D': {
+      correct: false,
+      message: 'Too vague and ambiguous; multiple teams/titles could fit.'
+    }
+  };
+
+  quizOptions.forEach(option => {
+    option.addEventListener('click', function() {
+      const answer = this.getAttribute('data-answer');
+      const feedback = feedbackMessages[answer];
+
+      quizOptions.forEach(opt => {
+        opt.classList.remove('selected', 'correct', 'incorrect');
+      });
+
+      this.classList.add('selected');
+
+      if (feedback.correct) {
+        this.classList.add('correct');
+        feedbackDiv.className = 'quiz-feedback success';
+        feedbackDiv.innerHTML = `<p>${feedback.message}</p>`;
+      } else {
+        this.classList.add('incorrect');
+        feedbackDiv.className = 'quiz-feedback error';
+        feedbackDiv.innerHTML = `<p>${feedback.message}</p>`;
+      }
+
+      feedbackDiv.style.display = 'block';
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadModule();
+  setTimeout(initializeQuiz, 100);
+});
