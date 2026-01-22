@@ -143,6 +143,27 @@ li {
   margin: 0.2rem 0;
 }
 
+/* Checkmark and X-mark lists */
+.checkmark-list,
+.xmark-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.checkmark-list li,
+.xmark-list li {
+  margin: 0.6rem 0;
+  padding-left: 0.5rem;
+}
+
+.checkmark-list li {
+  line-height: 1.6;
+}
+
+.xmark-list li {
+  line-height: 1.6;
+}
+
 /* Details / summary */
 details {
   margin-top: 0.6rem;
