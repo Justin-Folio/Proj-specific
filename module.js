@@ -396,6 +396,13 @@ const moduleData = {
             <li>The wording is professional, grammatical, and polished enough for inclusion in a production‑quality dataset.</li>
           </ul>
         </section>
+
+        <section class="cta-container">
+          <h3>Ready to put this into practice?</h3>
+          <p>You've reviewed the full success checklist for Project X prompts. The next step is to practice turning these rules into real tasks in a low-pressure sandbox.</p>
+          <p>In the Practice Lab, you'll draft prompts, get structured feedback, and see how well your ideas match the success criteria.</p>
+          <a href="practice-lab.html" class="cta-button">Go to Practice Lab</a>
+        </section>
       </section>
     `
   }
