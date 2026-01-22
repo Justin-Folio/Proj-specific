@@ -205,6 +205,37 @@ const moduleData = {
         <p class="note">
           Wikipedia may be used, but it must make up no more than 50% of your sources for any given prompt. Always cross‑check key facts with at least one non‑Wikipedia source.
         </p>
+
+        <section class="quiz-container" id="quiz-module2">
+          <h3>Check Your Understanding</h3>
+          <p>Select all examples that would make strong, high‑value topics for a Project X prompt.</p>
+
+          <div class="quiz-checkbox-options">
+            <label class="quiz-checkbox-option">
+              <input type="checkbox" data-option="1">
+              <span class="checkbox-text">The methods section of the Tuskegee Study, including how participants were selected and treated.</span>
+            </label>
+
+            <label class="quiz-checkbox-option">
+              <input type="checkbox" data-option="2">
+              <span class="checkbox-text">A live blog of election results that is being updated in real time.</span>
+            </label>
+
+            <label class="quiz-checkbox-option">
+              <input type="checkbox" data-option="3">
+              <span class="checkbox-text">The date of the Battle of Yorktown as written in a published history book.</span>
+            </label>
+
+            <label class="quiz-checkbox-option">
+              <input type="checkbox" data-option="4">
+              <span class="checkbox-text">An online forum where people discuss current tech trends and which products they like.</span>
+            </label>
+          </div>
+
+          <button class="btn-primary" id="check-answers-btn">Check answers</button>
+
+          <div id="quiz-module2-feedback" class="quiz-feedback" style="display: none;"></div>
+        </section>
       </section>
     `
   },
@@ -412,6 +443,36 @@ function initializeQuiz() {
 
       feedbackDiv.style.display = 'block';
     });
+  });
+
+  initializeModule2CheckboxQuiz();
+}
+
+function initializeModule2CheckboxQuiz() {
+  const checkAnswersBtn = document.getElementById('check-answers-btn');
+  const feedbackDiv = document.getElementById('quiz-module2-feedback');
+
+  if (!checkAnswersBtn || !feedbackDiv) {
+    return;
+  }
+
+  checkAnswersBtn.addEventListener('click', function() {
+    const option1 = document.querySelector('input[data-option="1"]');
+    const option2 = document.querySelector('input[data-option="2"]');
+    const option3 = document.querySelector('input[data-option="3"]');
+    const option4 = document.querySelector('input[data-option="4"]');
+
+    const isCorrect = option1.checked && !option2.checked && option3.checked && !option4.checked;
+
+    if (isCorrect) {
+      feedbackDiv.className = 'quiz-feedback success';
+      feedbackDiv.innerHTML = '<p>Correct! Both 1 and 3 are based on stable, well-documented facts that work well for complex prompts.</p>';
+    } else {
+      feedbackDiv.className = 'quiz-feedback error';
+      feedbackDiv.innerHTML = '<p>Not quite. High‑value topics are stable, well-documented facts (like a study\'s methods or a historical battle date). Try again.</p>';
+    }
+
+    feedbackDiv.style.display = 'block';
   });
 }
 
