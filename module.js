@@ -222,11 +222,11 @@ const moduleData = {
           directed by someone born in British India in the 1940s who was once a comedy writer, where one
           of the writers later became an evangelical Christian before returning to acting at age 40?
         </p>
-        <ul>
-          <li>It has multiple reasoning layers: release decade, runtime range, director's birthplace and birth decade, director's earlier career, and a life event of one of the writers.</li>
-          <li>Each layer is web‑verifiable and narrows the search; an annotator or QA can confirm every clue using public sources.</li>
-          <li>The final answer is a single film title, <em>White Mischief</em>, which can be used as a short, string‑matchable ground truth.</li>
-          <li>The prompt does not tell the model how to search; it only states facts and asks for the movie name, so the model must plan its own reasoning path.</li>
+        <ul class="checkmark-list">
+          <li>✓ It has multiple reasoning layers: release decade, runtime range, director's birthplace and birth decade, director's earlier career, and a life event of one of the writers.</li>
+          <li>✓ Each layer is web‑verifiable and narrows the search; an annotator or QA can confirm every clue using public sources.</li>
+          <li>✓ The final answer is a single film title, <em>White Mischief</em>, which can be used as a short, string‑matchable ground truth.</li>
+          <li>✓ The prompt does not tell the model how to search; it only states facts and asks for the movie name, so the model must plan its own reasoning path.</li>
         </ul>
 
         <h3>Bad example: Step‑by‑step food‑truck prompt</h3>
@@ -238,9 +238,9 @@ const moduleData = {
           San‑Francisco software company focused on digital marketing. There will only be one found like
           this with Pakistani and Indian heritage. Who is this?
         </p>
-        <ul>
-          <li>It walks the model through the solution path ("start by… then… eliminate… find…"), which violates the rule against instructional or step‑by‑step prompts.</li>
-          <li>Instead of expressing clues as facts inside the question, it gives explicit search instructions, so the model does not need to plan its own reasoning.</li>
+        <ul class="xmark-list">
+          <li>✗ It walks the model through the solution path ("start by… then… eliminate… find…"), which violates the rule against instructional or step‑by‑step prompts.</li>
+          <li>✗ Instead of expressing clues as facts inside the question, it gives explicit search instructions, so the model does not need to plan its own reasoning.</li>
         </ul>
       </section>
     `
