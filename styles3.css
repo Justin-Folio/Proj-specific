@@ -3,6 +3,13 @@
   box-sizing: border-box;
 }
 
+:root {
+  --teal-primary: #218091;
+  --teal-light: #e0f7f5;
+  --teal-lighter: #f0faf9;
+  --teal-dark: #0f766e;
+}
+
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   max-width: 960px;
@@ -73,9 +80,9 @@ nav a {
 
 /* Hover: light teal */
 nav a:hover {
-  background: #e0f7f5;                 /* light teal */
+  background: var(--teal-light);
   color: #0f172a;
-  box-shadow: 0 8px 18px rgba(45, 212, 191, 0.35);
+  box-shadow: 0 8px 18px rgba(33, 128, 145, 0.35);
   transform: translateY(-1px);
 }
 
@@ -124,7 +131,7 @@ section#edgecases section {
 
 .topic-card section:hover {
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
-  border-color: rgba(15, 118, 110, 0.4);
+  border-color: rgba(33, 128, 145, 0.4);
 }
 
 /* Text elements */
@@ -173,20 +180,21 @@ details {
 details summary {
   cursor: pointer;
   font-weight: 600;
-  color: #0f766e;
+  color: var(--teal-primary);
 }
 
 details summary:hover {
-  color: #0d9488;
+  color: var(--teal-dark);
 }
 
 /* Inline links */
 a {
-  color: #0f766e;
+  color: var(--teal-primary);
+  transition: color 0.2s ease;
 }
 
 a:hover {
-  color: #0d9488;
+  color: var(--teal-dark);
 }
 
 /* Video container - responsive */
@@ -221,7 +229,7 @@ a:hover {
   padding: 1.25rem;
   background: #f1f5f9;
   border-radius: 10px;
-  border-left: 4px solid #0f766e;
+  border-left: 4px solid var(--teal-primary);
 }
 
 .video-explanation p {
@@ -250,14 +258,14 @@ a:hover {
 }
 
 .btn-primary {
-  background: #0f766e;
+  background: var(--teal-primary);
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(15, 118, 110, 0.3);
+  box-shadow: 0 4px 12px rgba(33, 128, 145, 0.3);
 }
 
 .btn-primary:hover {
-  background: #0d9488;
-  box-shadow: 0 6px 16px rgba(15, 118, 110, 0.4);
+  background: var(--teal-dark);
+  box-shadow: 0 6px 16px rgba(33, 128, 145, 0.4);
   transform: translateY(-2px);
   color: #ffffff;
 }
@@ -321,8 +329,8 @@ a:hover {
 }
 
 .module-card:hover {
-  border-color: #0f766e;
-  box-shadow: 0 8px 24px rgba(15, 118, 110, 0.15);
+  border-color: var(--teal-primary);
+  box-shadow: 0 8px 24px rgba(33, 128, 145, 0.15);
   transform: translateY(-2px);
 }
 
@@ -383,12 +391,13 @@ a:hover {
 }
 
 .module-breadcrumb a {
-  color: #0f766e;
+  color: var(--teal-primary);
   text-decoration: none;
 }
 
 .module-breadcrumb a:hover {
   text-decoration: underline;
+  color: var(--teal-dark);
 }
 
 .module-meta {
@@ -465,7 +474,7 @@ a:hover {
 .form-input:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: #0f766e;
+  border-color: var(--teal-primary);
 }
 
 .form-textarea {
@@ -680,9 +689,9 @@ a:hover {
 }
 
 .quiz-feedback.success {
-  background: #f0fdf4;
-  border-color: #22c55e;
-  color: #166534;
+  background: #e6f7f5;
+  border-color: var(--teal-primary);
+  color: #0c5a5a;
 }
 
 .quiz-feedback.error {
@@ -728,7 +737,7 @@ a:hover {
   width: 1.25rem;
   height: 1.25rem;
   cursor: pointer;
-  accent-color: #0f766e;
+  accent-color: var(--teal-primary);
   flex-shrink: 0;
 }
 
@@ -736,6 +745,90 @@ a:hover {
   color: #334155;
   line-height: 1.6;
   font-size: 1rem;
+}
+
+/* Workflow Step Cards */
+.workflow-step {
+  position: relative;
+  padding-left: 3.5rem !important;
+  border-left: 3px solid var(--teal-primary) !important;
+  transition: all 0.3s ease;
+}
+
+.workflow-step:hover {
+  border-left-color: var(--teal-dark) !important;
+  box-shadow: 0 4px 16px rgba(33, 128, 145, 0.15) !important;
+}
+
+.step-badge {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  width: 2rem;
+  height: 2rem;
+  background: var(--teal-primary);
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(33, 128, 145, 0.3);
+}
+
+/* Section Heading with Teal Accent */
+.section-heading-teal {
+  position: relative;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.25rem !important;
+}
+
+.section-heading-teal::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--teal-primary);
+  border-radius: 2px;
+}
+
+/* Quiz Container with Teal Styling */
+.quiz-container-teal {
+  background: var(--teal-lighter) !important;
+  border-color: var(--teal-primary) !important;
+  margin-top: 3rem !important;
+}
+
+.quiz-heading-teal {
+  color: var(--teal-dark);
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.quiz-container-teal .quiz-option {
+  background: #ffffff;
+}
+
+.quiz-container-teal .quiz-option:hover {
+  border-color: var(--teal-primary);
+}
+
+.quiz-container-teal .quiz-option.selected {
+  background: var(--teal-light);
+  border-color: var(--teal-primary);
+}
+
+.quiz-container-teal .btn-primary {
+  background: var(--teal-primary);
+  box-shadow: 0 4px 12px rgba(33, 128, 145, 0.3);
+}
+
+.quiz-container-teal .btn-primary:hover {
+  background: var(--teal-dark);
+  box-shadow: 0 6px 16px rgba(33, 128, 145, 0.4);
 }
 
 /* Small screens */
@@ -771,5 +864,20 @@ a:hover {
   .module-header {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .workflow-step {
+    padding-left: 3rem !important;
+  }
+
+  .step-badge {
+    left: 0.75rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 0.9rem;
+  }
+
+  .quiz-heading-teal {
+    font-size: 1.2rem;
   }
 }

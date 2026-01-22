@@ -4,14 +4,15 @@ const moduleData = {
     description: 'Learn the five-step process for creating effective prompts',
     content: `
       <section>
-        <h2>Guided Workflow</h2>
+        <h2 class="section-heading-teal">Guided Workflow</h2>
         <p>
           Follow these five steps for every prompt you submit. Each step must be completed
           for the prompt to be accepted.
         </p>
 
-        <section>
-          <h3>1. Choose a Seed Fact</h3>
+        <section class="workflow-step">
+          <div class="step-badge">1</div>
+          <h3>Choose a Seed Fact</h3>
           <p>
             Start from a concrete, web‑verifiable "anchor" that your entire prompt will
             revolve around.
@@ -24,8 +25,9 @@ const moduleData = {
           </ul>
         </section>
 
-        <section>
-          <h3>2. Build 4+ Reasoning Layers</h3>
+        <section class="workflow-step">
+          <div class="step-badge">2</div>
+          <h3>Build 4+ Reasoning Layers</h3>
           <p>
             Add at least four distinct clues that all need to be true for the final answer.
           </p>
@@ -56,8 +58,9 @@ const moduleData = {
           </details>
         </section>
 
-        <section>
-          <h3>3. Shape the Ground‑Truth Answer</h3>
+        <section class="workflow-step">
+          <div class="step-badge">3</div>
+          <h3>Shape the Ground‑Truth Answer</h3>
           <p>
             Decide what exact string will count as the correct answer before you test the prompt.
           </p>
@@ -68,8 +71,9 @@ const moduleData = {
           </ul>
         </section>
 
-        <section>
-          <h3>4. Break‑Test in Gemini Pro 2.5</h3>
+        <section class="workflow-step">
+          <div class="step-badge">4</div>
+          <h3>Break‑Test in Gemini Pro 2.5</h3>
           <p>
             Your prompt must fool Gemini three times in a row with Google Search grounding on.
           </p>
@@ -89,8 +93,9 @@ const moduleData = {
           </ol>
         </section>
 
-        <section>
-          <h3>5. Add Rubric &amp; High‑Level Plan</h3>
+        <section class="workflow-step">
+          <div class="step-badge">5</div>
+          <h3>Add Rubric &amp; High‑Level Plan</h3>
           <p>
             Document how a careful solver could reach the answer using the web.
           </p>
@@ -130,8 +135,8 @@ const moduleData = {
           </details>
         </section>
 
-        <section class="quiz-container">
-          <h3>Check Your Understanding</h3>
+        <section class="quiz-container quiz-container-teal">
+          <h3 class="quiz-heading-teal">Check Your Understanding</h3>
           <p>Which of the following best describes a good seed fact for a Project X prompt?</p>
 
           <div class="quiz-options">
