@@ -318,6 +318,24 @@ const moduleData = {
         <p class="note">
           Remember: a prompt is only ready to submit when Gemini Pro 2.5 with Google Search grounding fails in all three tests, and at least one screenshot clearly shows the incorrect or refused answer with grounding turned on.
         </p>
+
+        <section class="quiz-container">
+          <h3>Check Your Understanding</h3>
+          <div class="quiz-question">
+            <p>If Gemini returns a partially correct answer during a break test (for example, the right person but the wrong detail), you can still count that run as a successful break and move on as long as it failed on the other runs.</p>
+            <div class="quiz-options">
+              <label class="quiz-option">
+                <input type="radio" name="quiz-module4" value="true" />
+                <span>True</span>
+              </label>
+              <label class="quiz-option">
+                <input type="radio" name="quiz-module4" value="false" />
+                <span>False</span>
+              </label>
+            </div>
+          </div>
+          <div id="quiz-module4-feedback" class="quiz-feedback" style="display: none;"></div>
+        </section>
       </section>
     `
   },
@@ -470,6 +488,7 @@ function initializeQuiz() {
   });
 
   initializeModule2CheckboxQuiz();
+  initializeModule4Quiz();
 }
 
 function initializeModule2CheckboxQuiz() {
@@ -497,6 +516,31 @@ function initializeModule2CheckboxQuiz() {
     }
 
     feedbackDiv.style.display = 'block';
+  });
+}
+
+function initializeModule4Quiz() {
+  const radioButtons = document.querySelectorAll('input[name="quiz-module4"]');
+  const feedbackDiv = document.getElementById('quiz-module4-feedback');
+
+  if (!radioButtons.length || !feedbackDiv) {
+    return;
+  }
+
+  radioButtons.forEach(radio => {
+    radio.addEventListener('change', function() {
+      const selectedValue = this.value;
+
+      if (selectedValue === 'false') {
+        feedbackDiv.className = 'quiz-feedback success';
+        feedbackDiv.innerHTML = '<p>Correct. Partially correct answers do not count as valid breaks. You must revise the prompt and re‑test until the model is clearly wrong on all three runs.</p>';
+      } else {
+        feedbackDiv.className = 'quiz-feedback error';
+        feedbackDiv.innerHTML = '<p>Not quite. If Gemini is only partially wrong, you must revise the prompt and re‑test rather than counting it as a successful break.</p>';
+      }
+
+      feedbackDiv.style.display = 'block';
+    });
   });
 }
 
