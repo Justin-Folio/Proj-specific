@@ -107,6 +107,26 @@ section#edgecases section {
   border: 1px solid rgba(203, 213, 225, 0.8);
 }
 
+/* Topic card wrapper - enhanced visual prominence */
+.topic-card {
+  margin-top: 1.25rem;
+}
+
+.topic-card section {
+  margin-top: 0;
+  padding: 1rem 1rem 1.05rem;
+  border-radius: 12px;
+  background: #f9fafb;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+  border: 1.5px solid rgba(148, 163, 184, 0.5);
+  transition: all 0.2s ease;
+}
+
+.topic-card section:hover {
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+  border-color: rgba(15, 118, 110, 0.4);
+}
+
 /* Text elements */
 p {
   margin: 0.4rem 0 0.8rem;
