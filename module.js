@@ -322,43 +322,58 @@ const moduleData = {
     description: 'Review the complete checklist for prompt requirements',
     content: `
       <section>
-        <h2>Success Criteria</h2>
+        <h2 class="section-heading-teal">Success Criteria</h2>
         <p>Before you submit any prompt, confirm that every item below is true.</p>
 
-        <h3>Prompt Complexity &amp; Sources</h3>
-        <ul>
-          <li>The prompt uses at least four genuine reasoning layers, each helping narrow down the answer.</li>
-          <li>There are at least four independent web sources supporting the reasoning steps.</li>
-          <li>The question cannot be solved by a simple direct search of the full prompt text, and most layers are not solvable using only Wikipedia.</li>
-          <li>Sources are varied and authoritative, and no more than half of them are from Wikipedia.</li>
-        </ul>
+        <section class="workflow-step">
+          <div class="step-badge">1</div>
+          <h3>Prompt Complexity &amp; Sources</h3>
+          <ul>
+            <li>The prompt uses at least four genuine reasoning layers, each helping narrow down the answer.</li>
+            <li>There are at least four independent web sources supporting the reasoning steps.</li>
+            <li>The question cannot be solved by a simple direct search of the full prompt text, and most layers are not solvable using only Wikipedia.</li>
+            <li>Sources are varied and authoritative, and no more than half of them are from Wikipedia.</li>
+          </ul>
+        </section>
 
-        <h3>Answer &amp; Ground Truth</h3>
-        <ul>
-          <li>The answer is a single, unambiguous ground‑truth string (no lists or multiple valid options).</li>
-          <li>The answer is string‑matchable and evergreen: it will not change over time, and a correct model reply will contain that string regardless of capitalization.</li>
-          <li>Numeric answers follow the required format exactly (no commas unless explicitly specified, use forms like "491k" only when requested).</li>
-        </ul>
+        <section class="workflow-step">
+          <div class="step-badge">2</div>
+          <h3>Answer &amp; Ground Truth</h3>
+          <ul>
+            <li>The answer is a single, unambiguous ground‑truth string (no lists or multiple valid options).</li>
+            <li>The answer is string‑matchable and evergreen: it will not change over time, and a correct model reply will contain that string regardless of capitalization.</li>
+            <li>Numeric answers follow the required format exactly (no commas unless explicitly specified, use forms like "491k" only when requested).</li>
+          </ul>
+        </section>
 
-        <h3>Testing in Gemini Pro 2.5</h3>
-        <ul>
-          <li>Gemini Pro 2.5 is run three times with Google Search grounding turned ON.</li>
-          <li>All three runs are failures (wrong answer or refusal), and at least one screenshot clearly shows the failed answer and the grounding indicator.</li>
-          <li>If any run is partially or fully correct, the prompt is revised (more layers / tighter constraints) and re‑tested until all three runs are failures.</li>
-        </ul>
+        <section class="workflow-step">
+          <div class="step-badge">3</div>
+          <h3>Testing in Gemini Pro 2.5</h3>
+          <ul>
+            <li>Gemini Pro 2.5 is run three times with Google Search grounding turned ON.</li>
+            <li>All three runs are failures (wrong answer or refusal), and at least one screenshot clearly shows the failed answer and the grounding indicator.</li>
+            <li>If any run is partially or fully correct, the prompt is revised (more layers / tighter constraints) and re‑tested until all three runs are failures.</li>
+          </ul>
+        </section>
 
-        <h3>Rubrics &amp; High‑Level Plan</h3>
-        <ul>
-          <li>Each reasoning step in the rubric is explained clearly and backed by at least one English‑language web citation that does not require extra navigation clicks.</li>
-          <li>The high‑level plan is written as a sequence of "Verify / Find / Cross‑reference" sub‑goals that, if followed, lead directly from the question to the final answer.</li>
-        </ul>
+        <section class="workflow-step">
+          <div class="step-badge">4</div>
+          <h3>Rubrics &amp; High‑Level Plan</h3>
+          <ul>
+            <li>Each reasoning step in the rubric is explained clearly and backed by at least one English‑language web citation that does not require extra navigation clicks.</li>
+            <li>The high‑level plan is written as a sequence of "Verify / Find / Cross‑reference" sub‑goals that, if followed, lead directly from the question to the final answer.</li>
+          </ul>
+        </section>
 
-        <h3>Quality &amp; Policy Checks</h3>
-        <ul>
-          <li>No AI tools or plagiarism were used while creating the prompt, answer, rubric, or plan.</li>
-          <li>No counting‑based tricks, non‑text sources, or step‑by‑step instructions are used in the prompt.</li>
-          <li>The wording is professional, grammatical, and polished enough for inclusion in a production‑quality dataset.</li>
-        </ul>
+        <section class="workflow-step">
+          <div class="step-badge">5</div>
+          <h3>Quality &amp; Policy Checks</h3>
+          <ul>
+            <li>No AI tools or plagiarism were used while creating the prompt, answer, rubric, or plan.</li>
+            <li>No counting‑based tricks, non‑text sources, or step‑by‑step instructions are used in the prompt.</li>
+            <li>The wording is professional, grammatical, and polished enough for inclusion in a production‑quality dataset.</li>
+          </ul>
+        </section>
       </section>
     `
   }
