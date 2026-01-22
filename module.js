@@ -278,6 +278,10 @@ const moduleData = {
           <li>✗ It walks the model through the solution path ("start by… then… eliminate… find…"), which violates the rule against instructional or step‑by‑step prompts.</li>
           <li>✗ Instead of expressing clues as facts inside the question, it gives explicit search instructions, so the model does not need to plan its own reasoning.</li>
         </ul>
+
+        <p class="note">
+          You can practice making prompts in Module 6!
+        </p>
       </section>
     `
   },
