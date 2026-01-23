@@ -211,8 +211,8 @@ const moduleData = {
           Wikipedia may be used, but it must make up no more than 50% of your sources for any given prompt. Always cross‑check key facts with at least one non‑Wikipedia source.
         </p>
 
-        <section class="quiz-container" id="quiz-module2">
-          <h3>Check Your Understanding</h3>
+        <section class="quiz-container quiz-container-teal" id="quiz-module2">
+          <h3 class="quiz-heading-teal">Check Your Understanding</h3>
           <p>Select all examples that would make strong, high‑value topics for a Project X prompt.</p>
 
           <div class="quiz-checkbox-options">
@@ -319,8 +319,8 @@ const moduleData = {
           Remember: a prompt is only ready to submit when Gemini Pro 2.5 with Google Search grounding fails in all three tests, and at least one screenshot clearly shows the incorrect or refused answer with grounding turned on.
         </p>
 
-        <section class="quiz-container">
-          <h3>Check Your Understanding</h3>
+        <section class="quiz-container quiz-container-teal">
+          <h3 class="quiz-heading-teal">Check Your Understanding</h3>
           <div class="quiz-question">
             <p>If Gemini returns a partially correct answer during a break test (for example, the right person but the wrong detail), you can still count that run as a successful break and move on as long as it failed on the other runs.</p>
             <div class="quiz-options">
