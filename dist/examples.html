@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project X – Prompt Examples</title>
+  <link rel="stylesheet" crossorigin href="/assets/styles3-8Bo1HNgX.css">
+</head>
+<body>
+  <header>
+    <h1>Project X Guidelines</h1>
+    <nav>
+      <a href="index.html">Welcome</a>
+      <a href="workflow.html">Workflow</a>
+      <a href="examples.html">Examples</a>
+      <a href="topics.html">Topics & Sources</a>
+      <a href="edgecases.html">Edge Cases</a>
+      <a href="successcriteria.html">Success Criteria</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="examples">
+      <h2>Prompt Examples: Good vs. Bad</h2>
+      <p>These examples illustrate the target style and level of difficulty. Use them as inspiration, not templates to copy.</p>
+
+      <h3>Good example: Movie prompt</h3>
+      <p>
+        What is the name of a movie released in the 1980s, with a runtime between 1h 35 and 1h 50,
+        directed by someone born in British India in the 1940s who was once a comedy writer, where one
+        of the writers later became an evangelical Christian before returning to acting at age 40?
+      </p>
+      <ul class="checkmark-list">
+        <li>✅ It has multiple reasoning layers: release decade, runtime range, director's birthplace and birth decade, director's earlier career, and a life event of one of the writers.</li>
+        <li>✅ Each layer is web‑verifiable and narrows the search; an annotator or QA can confirm every clue using public sources.</li>
+        <li>✅ The final answer is a single film title, <em>White Mischief</em>, which can be used as a short, string‑matchable ground truth.</li>
+        <li>✅ The prompt does not tell the model how to search; it only states facts and asks for the movie name, so the model must plan its own reasoning path.</li>
+      </ul>
+
+      <h3>Bad example: Step‑by‑step food‑truck prompt</h3>
+      <p>
+        Start by finding a list of food trucks in San Francisco, then narrow it to porchetta sandwiches.
+        Eliminate all locations that are not near the Ferry Building. Find famous trucks whose founders
+        have an MBA from a top‑15 U.S. business school, and whose father formerly owned a London textile
+        business and invested in a 1990s video‑rental chain; whose spouse is a Senior Director at a
+        San‑Francisco software company focused on digital marketing. There will only be one found like
+        this with Pakistani and Indian heritage. Who is this?
+      </p>
+      <ul class="xmark-list">
+        <li>❌ It walks the model through the solution path ("start by… then… eliminate… find…"), which violates the rule against instructional or step‑by‑step prompts.</li>
+        <li>❌ Instead of expressing clues as facts inside the question, it gives explicit search instructions, so the model does not need to plan its own reasoning.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

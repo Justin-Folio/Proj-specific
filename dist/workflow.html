@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project X – Guided Workflow</title>
+  <link rel="stylesheet" crossorigin href="/assets/styles3-8Bo1HNgX.css">
+</head>
+<body>
+  <header>
+    <h1>Project X Guidelines</h1>
+    <nav>
+      <a href="index.html">Welcome</a>
+      <a href="workflow.html">Workflow</a>
+      <a href="examples.html">Examples</a>
+      <a href="topics.html">Topics & Sources</a>
+      <a href="edgecases.html">Edge Cases</a>
+      <a href="successcriteria.html">Success Criteria</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="workflow">
+      <h2>Guided Workflow</h2>
+      <p>
+        Follow these five steps for every prompt you submit. Each step must be completed
+        for the prompt to be accepted.
+      </p>
+
+      <!-- 1. Choose a seed fact -->
+      <section>
+        <h3>1. Choose a Seed Fact</h3>
+        <p>
+          Start from a concrete, web‑verifiable “anchor” that your entire prompt will
+          revolve around.
+        </p>
+        <ul>
+          <li>Use a specific person, event, artifact, or statistic as your seed.</li>
+          <li>Good seeds: a well‑known scientist, a historical treaty, a famous artifact,
+              or a numeric figure like a country’s GDP in a given year.</li>
+          <li>The seed guarantees that the final question has a verifiable answer on the web.</li>
+        </ul>
+      </section>
+
+      <!-- 2. Build 4+ reasoning layers -->
+      <section>
+        <h3>2. Build 4+ Reasoning Layers</h3>
+        <p>
+          Add at least four distinct clues that all need to be true for the final answer.
+        </p>
+        <ul>
+          <li>Each layer should require its own search or reasoning step and help narrow
+              down the correct answer.</li>
+          <li>Avoid filler details that do not affect which answer is correct.</li>
+        </ul>
+
+        <details>
+          <summary>See a 4‑layer example</summary>
+          <p>
+            As of 2020, a researcher who completed a PhD in computer science at a
+            university in Switzerland published a widely cited paper on adversarial
+            attacks against image‑classification models trained on a dataset released
+            in 2009. The paper was presented at a top‑tier machine‑learning conference
+            held in North America, and one of the paper’s co‑authors later joined a
+            large U.S. technology company’s AI research lab headquartered in California.
+            What is the title of the 2016 paper by this researcher that analyzes defenses
+            against these adversarial attacks?
+          </p>
+          <ul>
+            <li>Layer 1: Researcher with a computer‑science PhD at a Swiss university.</li>
+            <li>Layer 2: Focus on adversarial attacks on a dataset released in 2009.</li>
+            <li>Layer 3: Paper presented at a top‑tier ML conference in North America.</li>
+            <li>Layer 4: Co‑author later joins a large U.S. tech company’s AI research lab in California.</li>
+          </ul>
+        </details>
+      </section>
+
+      <!-- 3. Shape the ground-truth answer -->
+      <section>
+        <h3>3. Shape the Ground‑Truth Answer</h3>
+        <p>
+          Decide what exact string will count as the correct answer before you test the prompt.
+        </p>
+        <ul>
+          <li>Use the shortest distinctive string (e.g., <em>Lakers</em>, not a full sentence).</li>
+          <li>Treat capitalization as irrelevant; the same string in any case is acceptable.</li>
+          <li>Avoid time‑sensitive answers; choose facts that will remain stable over time.</li>
+        </ul>
+      </section>
+
+      <!-- 4. Break-test in Gemini 2.5 -->
+      <section>
+        <h3>4. Break‑Test in Gemini Pro 2.5</h3>
+        <p>
+          Your prompt must fool Gemini three times in a row with Google Search grounding on.
+        </p>
+        <ol>
+          <li>Open
+            <a href="https://aistudio.google.com/prompts/new_chat?model=gemini-2.5-pro"
+               target="_blank" rel="noopener noreferrer">
+              Gemini Pro 2.5
+            </a>
+            and ensure “Grounding with Google Search” is enabled.
+          </li>
+          <li>Paste your question and run it three times.</li>
+          <li>If Gemini answers correctly more than once, increase difficulty by adding
+              or tightening reasoning layers, then retest.</li>
+          <li>When Gemini fails (or refuses) in all three runs, capture at least one clear
+              screenshot showing the failed answer and that grounding is on.</li>
+        </ol>
+      </section>
+
+      <!-- 5. Add rubric and high-level plan -->
+      <section>
+        <h3>5. Add Rubric &amp; High‑Level Plan</h3>
+        <p>
+          Document how a careful solver could reach the answer using the web.
+        </p>
+        <ul>
+          <li>Write rubric lines that explain each reasoning step and include at least
+              one citation per step.</li>
+          <li>Draft a high‑level plan as a sequence of sub‑goals beginning with
+              <strong>Verify</strong>, <strong>Find</strong>, or <strong>Cross‑reference</strong>.</li>
+        </ul>
+
+        <details>
+          <summary>See a sample high‑level plan</summary>
+          <p>
+            Example prompt: An example of this “anti‑art” movement is a work consisting solely
+            of a porcelain fixture, created sometime before the events of The Great Gatsby,
+            but after the events of Red Dead Redemption 2. The artist’s second wife’s
+            nickname is one of six adjectives in a song that was once #1 on the Billboard Hot
+            100. The song prominently describes an article of clothing worn by the subject
+            of Japanese sculpture. This Japanese sculpture was completed one year before
+            its companion piece. What is the name of the art movement these Japanese
+            sculptures belong to?
+          </p>
+          <ol>
+            <li>Verify when the events of The Great Gatsby took place.</li>
+            <li>Verify when the events of Red Dead Redemption 2 took place.</li>
+            <li>Cross‑reference the allowed date range between those events.</li>
+            <li>Find art movements active before that range.</li>
+            <li>Find examples from that movement consisting solely of a porcelain fixture.</li>
+            <li>Verify the artist who created the porcelain piece.</li>
+            <li>Find the artist’s second wife and verify her nickname.</li>
+            <li>Find #1 Billboard Hot 100 songs that include that nickname.</li>
+            <li>Verify the song has six adjectives in the title and describes a clothing item.</li>
+            <li>Find Japanese sculptures featuring that clothing item and confirm there is a companion piece.</li>
+            <li>Verify the sculpture predates its companion by one year.</li>
+            <li>Identify the art movement those sculptures belong to (final answer).</li>
+          </ol>
+        </details>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

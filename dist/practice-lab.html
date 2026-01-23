@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project X – Practice Lab</title>
+  <script type="module" crossorigin src="/assets/practiceLab-CPU4FaYi.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/progress-BmEoWASe.js">
+  <link rel="stylesheet" crossorigin href="/assets/styles3-8Bo1HNgX.css">
+</head>
+<body>
+  <header>
+    <h1>Project X Guidelines</h1>
+    <nav>
+      <a href="index.html">Welcome</a>
+      <a href="learning-path.html">Learning Path</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="module-header-info">
+      <div class="module-breadcrumb">
+        <a href="learning-path.html">Learning Path</a> &gt; Module 6: Practice Lab
+      </div>
+      <h2>Practice Lab</h2>
+    </div>
+
+    <section id="practice-intro">
+      <div class="practice-welcome">
+        <p class="practice-intro-text">
+          <strong>This is a safe place to practice creating prompts using the real Project X rules.</strong>
+          Nothing you create here counts as a final submission. Experiment freely!
+        </p>
+      </div>
+    </section>
+
+    <section id="practice-form-section">
+      <h3>Create Your Practice Task</h3>
+
+      <form id="practice-form">
+        <div class="form-group">
+          <label for="topic">Topic</label>
+          <input
+            type="text"
+            id="topic"
+            name="topic"
+            placeholder="e.g., Biology, History, Medicine"
+            class="form-input">
+        </div>
+
+        <div class="form-group">
+          <label for="question">Question</label>
+          <textarea
+            id="question"
+            name="question"
+            rows="6"
+            placeholder="Write a challenging, fact-seeking question with a single clear answer"
+            class="form-textarea"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="answer">Answer</label>
+          <textarea
+            id="answer"
+            name="answer"
+            rows="3"
+            placeholder="Write one precise answer that will not change over time"
+            class="form-textarea"></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary">Check my practice task</button>
+      </form>
+    </section>
+
+    <section id="feedback-section" style="display: none;">
+      <h3>Feedback Summary</h3>
+      <div id="feedback-container" class="feedback-container"></div>
+
+      <div class="practice-actions">
+        <button id="try-again" class="btn-secondary">Try Another Practice Task</button>
+      </div>
+    </section>
+
+    <section id="ready-section">
+      <div class="ready-container">
+        <h3>Ready for the Real Thing?</h3>
+        <p>Once you feel confident with the process, you can move forward to the official assessment.</p>
+        <button class="btn-assessment">Ready? Take the official assessment</button>
+      </div>
+    </section>
+
+    <div class="module-navigation">
+      <div class="nav-buttons">
+        <a href="module.html?id=5" class="btn-secondary">
+          &larr; Previous Module
+        </a>
+        <button id="mark-complete" class="btn-complete">Mark as Complete</button>
+        <a href="learning-path.html" class="btn-primary">
+          Back to Learning Path
+        </a>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

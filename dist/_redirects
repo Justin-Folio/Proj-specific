@@ -1,0 +1,12 @@
+# Netlify redirects configuration
+# This ensures all HTML pages are accessible
+
+# Serve HTML files without .html extension (optional)
+/module              /module.html            200
+/examples            /examples.html          200
+/learning-path       /learning-path.html     200
+/practice-lab        /practice-lab.html      200
+/topics              /topics.html            200
+/workflow            /workflow.html          200
+/successcriteria     /successcriteria.html   200
+/edgecases           /edgecases.html         200
