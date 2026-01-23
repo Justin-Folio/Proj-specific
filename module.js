@@ -282,6 +282,47 @@ const moduleData = {
         <p class="note">
           You can practice making prompts in Module 6!
         </p>
+
+        <section class="quiz-container quiz-container-teal">
+          <h3 class="quiz-heading-teal">Check Your Understanding</h3>
+          <p>Below are several characteristics of prompts. Drag each statement into the correct column: Good Project X prompt or Not a good Project X prompt.</p>
+
+          <div id="draggable-items-pool" class="draggable-pool">
+            <div class="draggable-item" draggable="true" data-id="1">
+              Uses multiple web-verifiable clues that narrow down to a single answer.
+            </div>
+            <div class="draggable-item" draggable="true" data-id="2">
+              Walks the model step by step through exactly which searches to run.
+            </div>
+            <div class="draggable-item" draggable="true" data-id="3">
+              Has a single, short, string-matchable final answer.
+            </div>
+            <div class="draggable-item" draggable="true" data-id="4">
+              Depends on up-to-the-minute information that may change tomorrow.
+            </div>
+            <div class="draggable-item" draggable="true" data-id="5">
+              Uses clues that can all be confirmed using public web sources.
+            </div>
+            <div class="draggable-item" draggable="true" data-id="6">
+              Tells the model which websites to open and in what order.
+            </div>
+          </div>
+
+          <div class="drop-zones-container">
+            <div class="drop-zone" data-category="good">
+              <h4 class="drop-zone-header">Good Project X prompt</h4>
+              <div class="drop-zone-content" data-zone="good"></div>
+            </div>
+            <div class="drop-zone" data-category="bad">
+              <h4 class="drop-zone-header">Not a good Project X prompt</h4>
+              <div class="drop-zone-content" data-zone="bad"></div>
+            </div>
+          </div>
+
+          <button class="btn-primary" id="check-categorization-btn">Check answers</button>
+
+          <div id="quiz-module3-feedback" class="quiz-feedback" style="display: none;"></div>
+        </section>
       </section>
     `
   },
@@ -495,6 +536,7 @@ function initializeQuiz() {
   });
 
   initializeModule2CheckboxQuiz();
+  initializeModule3DragDrop();
   initializeModule4Quiz();
 }
 
@@ -548,6 +590,120 @@ function initializeModule4Quiz() {
 
       feedbackDiv.style.display = 'block';
     });
+  });
+}
+
+function initializeModule3DragDrop() {
+  const draggables = document.querySelectorAll('.draggable-item');
+  const dropZones = document.querySelectorAll('.drop-zone-content');
+  const checkBtn = document.getElementById('check-categorization-btn');
+  const feedbackDiv = document.getElementById('quiz-module3-feedback');
+  const pool = document.getElementById('draggable-items-pool');
+
+  if (!draggables.length || !dropZones.length || !checkBtn || !feedbackDiv) {
+    return;
+  }
+
+  let draggedElement = null;
+
+  // Drag start
+  draggables.forEach(item => {
+    item.addEventListener('dragstart', function(e) {
+      draggedElement = this;
+      this.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/html', this.innerHTML);
+    });
+
+    item.addEventListener('dragend', function() {
+      this.classList.remove('dragging');
+    });
+
+    // Keyboard accessibility
+    item.setAttribute('tabindex', '0');
+    item.setAttribute('role', 'button');
+    item.setAttribute('aria-grabbed', 'false');
+
+    item.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (this.getAttribute('aria-grabbed') === 'false') {
+          this.setAttribute('aria-grabbed', 'true');
+          this.style.opacity = '0.5';
+          draggedElement = this;
+        } else {
+          this.setAttribute('aria-grabbed', 'false');
+          this.style.opacity = '1';
+          draggedElement = null;
+        }
+      }
+    });
+  });
+
+  // Drop zones (including pool)
+  const allDropZones = [...dropZones, pool];
+
+  allDropZones.forEach(zone => {
+    zone.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      this.classList.add('drag-over');
+      e.dataTransfer.dropEffect = 'move';
+    });
+
+    zone.addEventListener('dragleave', function() {
+      this.classList.remove('drag-over');
+    });
+
+    zone.addEventListener('drop', function(e) {
+      e.preventDefault();
+      this.classList.remove('drag-over');
+
+      if (draggedElement) {
+        this.appendChild(draggedElement);
+        draggedElement = null;
+      }
+    });
+
+    // Keyboard accessibility for drop zones
+    zone.setAttribute('tabindex', '0');
+    zone.setAttribute('role', 'region');
+    zone.setAttribute('aria-label', 'Drop zone');
+
+    zone.addEventListener('keydown', function(e) {
+      if ((e.key === 'Enter' || e.key === ' ') && draggedElement) {
+        e.preventDefault();
+        this.appendChild(draggedElement);
+        draggedElement.setAttribute('aria-grabbed', 'false');
+        draggedElement.style.opacity = '1';
+        draggedElement = null;
+      }
+    });
+  });
+
+  // Check answers
+  checkBtn.addEventListener('click', function() {
+    const goodZone = document.querySelector('[data-zone="good"]');
+    const badZone = document.querySelector('[data-zone="bad"]');
+
+    const goodItems = Array.from(goodZone.querySelectorAll('.draggable-item')).map(item => item.getAttribute('data-id'));
+    const badItems = Array.from(badZone.querySelectorAll('.draggable-item')).map(item => item.getAttribute('data-id'));
+
+    // Correct answer: Good = [1, 3, 5], Bad = [2, 4, 6]
+    const correctGood = ['1', '3', '5'];
+    const correctBad = ['2', '4', '6'];
+
+    const goodCorrect = correctGood.every(id => goodItems.includes(id)) && goodItems.length === correctGood.length;
+    const badCorrect = correctBad.every(id => badItems.includes(id)) && badItems.length === correctBad.length;
+
+    if (goodCorrect && badCorrect) {
+      feedbackDiv.className = 'quiz-feedback success';
+      feedbackDiv.innerHTML = '<p>Nice work. These traits match the good vs. bad prompt examples in this module.</p>';
+    } else {
+      feedbackDiv.className = 'quiz-feedback error';
+      feedbackDiv.innerHTML = '<p>Some items are in the wrong column. Adjust your choices and try again.</p>';
+    }
+
+    feedbackDiv.style.display = 'block';
   });
 }
 

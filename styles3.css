@@ -831,6 +831,98 @@ a:hover {
   box-shadow: 0 6px 16px rgba(33, 128, 145, 0.4);
 }
 
+/* Drag and Drop Quiz Styles */
+.draggable-pool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background: #ffffff;
+  border: 2px dashed rgba(33, 128, 145, 0.3);
+  border-radius: 8px;
+  min-height: 80px;
+}
+
+.draggable-item {
+  padding: 0.75rem 1rem;
+  background: #f8fafc;
+  border: 2px solid #cbd5e1;
+  border-radius: 6px;
+  cursor: grab;
+  user-select: none;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  transition: all 0.2s ease;
+  max-width: 100%;
+}
+
+.draggable-item:hover {
+  background: #f1f5f9;
+  border-color: var(--teal-primary);
+  box-shadow: 0 2px 8px rgba(33, 128, 145, 0.2);
+}
+
+.draggable-item:focus {
+  outline: 3px solid var(--teal-primary);
+  outline-offset: 2px;
+}
+
+.draggable-item.dragging {
+  opacity: 0.5;
+  cursor: grabbing;
+}
+
+.drop-zones-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.drop-zone {
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.drop-zone-header {
+  margin: 0;
+  padding: 0.875rem 1rem;
+  background: linear-gradient(135deg, var(--teal-lighter) 0%, #e0f7f5 100%);
+  color: var(--teal-dark);
+  font-size: 1rem;
+  font-weight: 600;
+  border-bottom: 2px solid rgba(33, 128, 145, 0.2);
+  text-align: center;
+}
+
+.drop-zone-content {
+  min-height: 200px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.drop-zone-content.drag-over {
+  background: var(--teal-lighter);
+  border: 2px dashed var(--teal-primary);
+  border-radius: 4px;
+}
+
+.drop-zone-content .draggable-item {
+  margin: 0;
+}
+
+#check-categorization-btn {
+  display: block;
+  margin: 1.5rem auto 0;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+}
+
 /* Call-to-Action Container */
 .cta-container {
   text-align: center;
@@ -939,5 +1031,22 @@ a:hover {
   .cta-button {
     width: 100%;
     padding: 0.85rem 1.5rem;
+  }
+
+  .drop-zones-container {
+    grid-template-columns: 1fr;
+  }
+
+  .draggable-pool {
+    padding: 1rem;
+  }
+
+  .draggable-item {
+    font-size: 0.9rem;
+    padding: 0.65rem 0.85rem;
+  }
+
+  .drop-zone-content {
+    min-height: 150px;
   }
 }
